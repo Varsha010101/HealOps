@@ -23,10 +23,13 @@ pipeline {
             }
         }
 
-        stage('Run Container') {
+        stage('Run Container with Auto-Heal') {
             steps {
                 sh '''
-                docker run -d -p 5000:5000 --name $CONTAINER_NAME $IMAGE_NAME
+                docker run -d -p 5000:5000 \
+                --name $CONTAINER_NAME \
+                --restart unless-stopped \
+                $IMAGE_NAME
                 '''
             }
         }
