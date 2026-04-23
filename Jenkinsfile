@@ -14,11 +14,10 @@ pipeline {
             }
         }
 
-        stage('Clean Old Containers') {
+        stage('Clean Old Container') {
             steps {
                 sh '''
                 docker rm -f $CONTAINER_NAME || true
-                docker ps -q --filter "publish=5050" | xargs -r docker rm -f || true
                 '''
             }
         }
