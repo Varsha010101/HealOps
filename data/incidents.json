@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "title": "Server not responding",
+        "status": "Resolved"
+    },
+    {
+        "id": 2,
+        "title": "Login Error",
+        "status": "Resolved"
+    },
+    {
+        "id": 3,
+        "title": "Dashboard is crashing",
+        "status": "Resolved"
+    }
+]

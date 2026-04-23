@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div>
+            <h2>Dashboard</h2>
+            <p>Welcome {{ user }} ({{ role }})</p>
+        </div>
+
+        <a class="logout-btn" href="/logout">Logout</a>
+    </div>
+
+    <!-- ACTION -->
+    <div class="action-row">
+        <a class="btn" href="/add">+ Add Incident</a>
+    </div>
+
+    <!-- INCIDENT CARDS -->
+    <div class="dashboard">
+        {% for i in incidents %}
+        <div class="incident">
+            <h3>{{ i.title }}</h3>
+
+            <p>
+                Status:
+                <span class="{{ 'open' if i.status=='Open' else 'resolved' }}">
+                    {{ i.status }}
+                </span>
+            </p>
+
+            {% if role == "admin" and i.status == "Open" %}
+            <a class="btn small" href="/resolve/{{ i.id }}">Resolve</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+</body>
+</html>

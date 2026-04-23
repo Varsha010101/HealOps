@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="center-wrapper">
+    <div class="card">
+        <h1>Create Account</h1>
+        <p class="subtitle">Sign up to get started</p>
+
+        <form method="POST">
+            <input name="name" placeholder="Full Name" required>
+            <input name="username" placeholder="Email" required>
+            <input name="phone" placeholder="Phone" required>
+            <input name="password" type="password" placeholder="Password" required>
+
+            <select name="role">
+                <option value="user">Customer</option>
+                <option value="admin">Admin</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p class="bottom-text">
+            Already have an account? <a href="/">Login</a>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+/* ===== BASE ===== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f5f7fb;   /* clean grey background */
+}
+
+/* ===== CONTAINER ===== */
+.dashboard-container {
+    padding: 30px 60px;
+}
+
+/* ===== HEADER ===== */
+.header {
+    margin-bottom: 30px;
+}
+
+.header h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: #1f2d3d;
+}
+
+.header p {
+    color: #6c757d;
+}
+
+/* ===== ACTION BUTTON ===== */
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #3b6df6;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #2f5ce0;
+}
+
+/* ===== DASHBOARD GRID ===== */
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* ===== CARDS ===== */
+.incident {
+    background: white;
+    padding: 20px;
+    width: 260px;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: 0.2s;
+}
+
+.incident:hover {
+    transform: translateY(-3px);
+}
+
+/* ===== STATUS ===== */
+.open {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.resolved {
+    color: #2ecc71;
+    font-weight: 600;
+}
+
+/* ===== LOGIN / REGISTER KEEP SAME ===== */
+.card {
+    background: white;
+    padding: 30px 25px;
+    width: 350px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.subtitle {
+    color: #6c757d;
+    margin-bottom: 18px;
+}
+
+/* ===== INPUT ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input, select {
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #f1f3f5;
+    font-size: 13px;
+}
+
+/* ===== BUTTON ===== */
+button {
+    height: 42px;
+    background: #3b6df6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* ===== LINKS ===== */
+.bottom-text {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.bottom-text a {
+    color: #3b6df6;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.center-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== TOP BAR ===== */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Logout button (top right) */
+.logout-btn {
+    background: #eee;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Action row */
+.action-row {
+    margin-bottom: 20px;
+}
+
+/* FIX DASHBOARD WIDTH + SPACING */
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Make cards fill space properly */
+.incident {
+    flex: 1 1 260px;   /* THIS IS THE KEY FIX */
+    max-width: 300px;
+}
