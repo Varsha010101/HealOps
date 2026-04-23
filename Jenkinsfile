@@ -8,12 +8,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/PoojaEllanti/DEVOPS_PROJECT.git'
-            }
-        }
-
         stage('Build Image') {
             steps {
                 sh 'docker build -t $IMAGE_NAME .'
