@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Incident Management</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
@@ -11,36 +13,42 @@
     <!-- TOP BAR -->
     <div class="top-bar">
         <div>
-            <h2>Dashboard</h2>
-            <p>Welcome {{ user }} ({{ role }})</p>
+            <h2>📊 Dashboard</h2>
+            <p>Welcome <strong>{{ user }}</strong> • <span style="color: #000;">Role: {{ role }}</span></p>
         </div>
-
-        <a class="logout-btn" href="/logout">Logout</a>
+        <a class="logout-btn" href="/logout">🚪 Logout</a>
     </div>
 
-    <!-- ACTION -->
+    <!-- ACTION SECTION -->
     <div class="action-row">
-        <a class="btn" href="/add">+ Add Incident</a>
+        <a class="btn" href="/add">+ Create New Incident</a>
     </div>
 
-    <!-- INCIDENT CARDS -->
+    <!-- INCIDENTS GRID -->
     <div class="dashboard">
-        {% for i in incidents %}
-        <div class="incident">
-            <h3>{{ i.title }}</h3>
-
-            <p>
-                Status:
+        {% if incidents %}
+            {% for i in incidents %}
+            <div class="incident">
+                <h3>{{ i.title }}</h3>
+                
+                <p style="margin: 16px 0;">
+                    <strong>Status:</strong>
+                </p>
                 <span class="{{ 'open' if i.status=='Open' else 'resolved' }}">
                     {{ i.status }}
                 </span>
-            </p>
 
-            {% if role == "admin" and i.status == "Open" %}
-            <a class="btn small" href="/resolve/{{ i.id }}">Resolve</a>
-            {% endif %}
-        </div>
-        {% endfor %}
+                {% if role == "admin" and i.status == "Open" %}
+                <a class="btn small" href="/resolve/{{ i.id }}">✓ Resolve</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% else %}
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: rgba(255,255,255,0.8);">
+                <h3 style="font-size: 24px; margin-bottom: 10px;">📭 No incidents yet</h3>
+                <p>Create a new incident to get started</p>
+            </div>
+        {% endif %}
     </div>
 
 </div>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Health - Incident Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fb 0%, #e8eef7 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .health-container {
+            background: white;
+            padding: 60px 50px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.08);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status-icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .status-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(81, 207, 102, 0.3);
+            margin-bottom: 32px;
+        }
+
+        .message {
+            color: #6b7280;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .details {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 32px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .detail-value {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .footer-text {
+            color: #9ca3af;
+            font-size: 13px;
+            margin-top: 24px;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 480px) {
+            .health-container {
+                padding: 40px 30px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .status-icon {
+                font-size: 64px;
+            }
+
+            .message {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="health-container">
+    <div class="status-icon">✅</div>
+    <h1>System Healthy</h1>
+    <div class="status-label">All Systems Operational</div>
+    
+    <p class="message">
+        The incident management system is running smoothly and all services are operational.
+    </p>
+
+    <div class="details">
+        <div class="detail-item">
+            <span class="detail-label">Status</span>
+            <span class="detail-value">Active</span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Response</span>
+            <span class="detail-value">Healthy</span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Uptime</span>
+            <span class="detail-value">100%</span>
+        </div>
+    </div>
+
+    <p class="footer-text">
+        🔍 System health check — Monitored and maintained
+    </p>
+</div>
+
+</body>
+</html>

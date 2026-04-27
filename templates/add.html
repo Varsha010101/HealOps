@@ -1,23 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Add Incident</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Incident - Incident Management</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
 <div class="center-wrapper">
     <div class="card">
-        <h1>Add Incident</h1>
-        <p class="subtitle">Report a new issue</p>
+        <h1>🚨 Report Incident</h1>
+        <p class="subtitle">Describe the issue you're experiencing</p>
 
         <form method="POST">
-            <input name="title" placeholder="Describe the issue..." required>
-            <button type="submit">Submit</button>
+            <textarea 
+                name="title" 
+                placeholder="Describe the issue in detail..." 
+                required
+                style="
+                    resize: vertical;
+                    min-height: 120px;
+                    padding: 15px 18px;
+                    font-family: inherit;
+                    border: 2px solid #e5e7eb;
+                    border-radius: 12px;
+                    font-size: 15px;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    background: #f9fafb;
+                "
+            ></textarea>
+            <button type="submit">📤 Submit Report</button>
         </form>
 
         <p class="bottom-text">
-            <a href="/dashboard">⬅ Back to Dashboard</a>
+            <a href="/dashboard">← Back to Dashboard</a>
         </p>
     </div>
 </div>

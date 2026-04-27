@@ -1,9 +1,45 @@
 <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Incident Management</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
+<body>
+
+<div class="center-wrapper">
+    <div class="card">
+        <h1>🔐 Welcome Back</h1>
+        <p class="subtitle">Sign in to access your incidents</p>
+
+        <form method="POST">
+            <input 
+                type="email" 
+                name="username" 
+                placeholder="Email Address" 
+                required 
+                autocomplete="email"
+            >
+            <input 
+                type="password" 
+                name="password" 
+                placeholder="Password" 
+                required 
+                autocomplete="current-password"
+            >
+            <button type="submit">Sign In</button>
+        </form>
+
+        <p class="bottom-text">
+            Don't have an account? <a href="/register">Create one now</a>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
 <body>
 
 <div class="center-wrapper">

@@ -1,32 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Incident Management</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
 <div class="center-wrapper">
     <div class="card">
-        <h1>Create Account</h1>
-        <p class="subtitle">Sign up to get started</p>
+        <h1>🚀 Create Account</h1>
+        <p class="subtitle">Join us to start managing incidents</p>
 
         <form method="POST">
-            <input name="name" placeholder="Full Name" required>
-            <input name="username" placeholder="Email" required>
-            <input name="phone" placeholder="Phone" required>
-            <input name="password" type="password" placeholder="Password" required>
+            <input 
+                type="text" 
+                name="name" 
+                placeholder="Full Name" 
+                required 
+                autocomplete="name"
+            >
+            <input 
+                type="email" 
+                name="username" 
+                placeholder="Email Address" 
+                required 
+                autocomplete="email"
+            >
+            <input 
+                type="tel" 
+                name="phone" 
+                placeholder="Phone Number" 
+                required 
+                autocomplete="tel"
+            >
+            <input 
+                type="password" 
+                name="password" 
+                placeholder="Create Password" 
+                required 
+                autocomplete="new-password"
+            >
 
-            <select name="role">
-                <option value="user">Customer</option>
-                <option value="admin">Admin</option>
+            <select name="role" required>
+                <option value="" disabled selected>Select your role...</option>
+                <option value="user">👤 Customer</option>
+                <option value="admin">👨‍💼 Administrator</option>
             </select>
 
-            <button type="submit">Register</button>
+            <button type="submit">Create Account</button>
         </form>
 
         <p class="bottom-text">
-            Already have an account? <a href="/">Login</a>
+            Already have an account? <a href="/">Sign in</a>
         </p>
     </div>
 </div>
