@@ -33,7 +33,6 @@ def save(file, data):
         json.dump(data, f, indent=4)
 
 # ---------------- AUTH ----------------
-
 @app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -50,8 +49,6 @@ def login():
         return "Invalid credentials"
 
     return render_template("login.html")
-
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -69,7 +66,6 @@ def register():
         return redirect("/")
 
     return render_template("register.html")
-
 
 @app.route("/logout")
 def logout():
@@ -134,7 +130,8 @@ def health():
 
 @app.route("/crash")
 def crash():
-    os._exit(1)
+    import sys
+    sys.exit(1)
 
 
 # ONLY for local run (NOT Docker)
