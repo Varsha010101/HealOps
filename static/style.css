@@ -537,9 +537,6 @@ button:disabled {
         font-size: 14px;
     }
 }
-    text-decoration: none;
-    color: #333;
-}
 
 /* Action row */
 .action-row {
