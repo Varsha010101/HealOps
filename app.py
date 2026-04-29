@@ -128,10 +128,11 @@ def resolve(id):
 def health():
     return render_template("health.html")
 
+import os, signal
+
 @app.route("/crash")
 def crash():
-    import sys
-    sys.exit(1)
+    os.kill(1, signal.SIGKILL)
 
 
 # ONLY for local run (NOT Docker)
