@@ -130,14 +130,14 @@ def health():
 
 @app.route("/crash")
 def crash():
-    import threading, time, os, signal
+    import threading, time, os
 
     def kill():
         time.sleep(2)
-        os.kill(1, signal.SIGKILL)
+        os._exit(1)   # forces container exit
 
     threading.Thread(target=kill).start()
-    return "Server will crash in 2 seconds..."
+    return "Crashing in 2 seconds..."
 
 
 # ONLY for local run (NOT Docker)
