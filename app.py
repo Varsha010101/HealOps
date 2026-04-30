@@ -134,11 +134,11 @@ def crash():
 
     def kill():
         time.sleep(1)
-        os.kill(os.getpid(), 9)
+        os.system("kill 1")   # 🔥 kills container process
 
     threading.Thread(target=kill).start()
 
-    return "Crashing container in 1 second..."
+    return "Crashing container..."
 
 
 # ONLY for local run (NOT Docker
