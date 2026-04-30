@@ -134,6 +134,6 @@ def crash():
     os.kill(os.getpid(), signal.SIGKILL)
 
 
-# ONLY for local run (NOT Docker)
+# ONLY for local run (NOT Docker
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
