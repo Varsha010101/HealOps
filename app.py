@@ -130,14 +130,13 @@ def health():
 
 @app.route("/crash")
 def crash():
-    import threading, time, os
+    import threading, time, os, signal
 
     def kill():
         time.sleep(1)
-        os.system("kill 1")   # 🔥 kills container process
+        os.kill(os.getpid(), signal.SIGKILL)  # 🔥 guaranteed kill
 
     threading.Thread(target=kill).start()
-
     return "Crashing container..."
 
 
