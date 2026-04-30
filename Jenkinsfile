@@ -4,7 +4,6 @@ pipeline {
     environment {
         IMAGE_NAME = "auto-heal-app"
         CONTAINER_NAME = "auto-heal-container"
-        PORT = "5055"
     }
 
     stages {
@@ -15,28 +14,28 @@ pipeline {
             }
         }
 
-        stage('Test Docker') {
+        stage('Remove Old Container') {
             steps {
-                sh 'docker ps'
+                sh 'docker rm -f $CONTAINER_NAME || true'
+            }
+        }
+
+        stage('Remove Old Image') {
+            steps {
+                sh 'docker rmi -f $IMAGE_NAME || true'
             }
         }
 
         stage('Build Image') {
             steps {
-                sh 'docker build -t $IMAGE_NAME .'
-            }
-        }
-
-        stage('Clean Old Container') {
-            steps {
-                sh 'docker rm -f $CONTAINER_NAME || true'
+                sh 'docker build --no-cache -t $IMAGE_NAME .'
             }
         }
 
         stage('Run Container') {
             steps {
                 sh '''
-                docker run -d -p $PORT:5000 \
+                docker run -d -p 5055:5000 \
                 --name $CONTAINER_NAME \
                 --restart always \
                 $IMAGE_NAME
