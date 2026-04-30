@@ -130,8 +130,15 @@ def health():
 
 @app.route("/crash")
 def crash():
-    import os, signal
-    os.kill(os.getpid(), signal.SIGKILL)
+    import threading, time, os
+
+    def kill():
+        time.sleep(1)
+        os.kill(os.getpid(), 9)
+
+    threading.Thread(target=kill).start()
+
+    return "Crashing container in 1 second..."
 
 
 # ONLY for local run (NOT Docker
