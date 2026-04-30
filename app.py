@@ -130,9 +130,8 @@ def health():
 
 @app.route("/crash")
 def crash():
-    import os
-    os.system("kill 1")
-    return "Killing container..."
+    import os, signal
+    os.kill(os.getpid(), signal.SIGKILL)
 
 
 # ONLY for local run (NOT Docker)
