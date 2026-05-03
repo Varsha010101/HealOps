@@ -136,7 +136,7 @@ def crash():
 
     def delayed_crash():
         time.sleep(1)  # give browser time to receive response
-        os._exit(1)    # 🔥 internal crash (triggers Docker restart)
+        os._exit(1)    
 
     threading.Thread(target=delayed_crash).start()
     return "<h2>⚠️ Crashing container... Auto-heal should restart it!</h2>"
