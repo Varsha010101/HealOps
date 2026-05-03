@@ -135,7 +135,7 @@ def crash():
     import os
 
     def delayed_crash():
-        time.sleep(1)  # give browser time to receive response
+        time.sleep(1)  
         os._exit(1)    
 
     threading.Thread(target=delayed_crash).start()
