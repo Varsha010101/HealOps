@@ -130,9 +130,16 @@ def health():
 
 @app.route("/crash")
 def crash():
+    import threading
+    import time
     import os
-    os.system("kill 1")   # kills PID 1 (container main process)
-    return "Crashing container..."
+
+    def delayed_crash():
+        time.sleep(1)  # give browser time to receive response
+        os._exit(1)    # 🔥 internal crash (triggers Docker restart)
+
+    threading.Thread(target=delayed_crash).start()
+    return "<h2>⚠️ Crashing container... Auto-heal should restart it!</h2>"
 
 
 # ONLY for local run (NOT Docker
