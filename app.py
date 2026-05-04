@@ -72,7 +72,7 @@ def logout():
     session.clear()
     return redirect("/")
 
-# ---------------- DASHBOARD ----------------
+# ---------------- DASHBOARD --------
 
 @app.route("/dashboard")
 def dashboard():
