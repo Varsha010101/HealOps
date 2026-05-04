@@ -142,6 +142,8 @@ def crash():
     return "<h2>⚠️ Crashing container... Auto-heal should restart it!</h2>"
 
 
+
 # ONLY for local run (NOT Docker
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, use_reloader=False)
+

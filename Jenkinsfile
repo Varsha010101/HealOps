@@ -4,10 +4,13 @@ pipeline {
     environment {
         IMAGE_NAME = "auto-heal-app"
         CONTAINER_NAME = "auto-heal-container"
+
         PORT = "5055"
+
     }
 
     stages {
+
 
         stage('Checkout') {
             steps {
@@ -32,12 +35,14 @@ pipeline {
 
                 echo "Running new container..."
                 docker run -d -p $PORT:5000 \
+
                 --name $CONTAINER_NAME \
                 --restart always \
                 $IMAGE_NAME
                 '''
             }
         }
+
 
         stage('Verify') {
             steps {
@@ -46,3 +51,4 @@ pipeline {
         }
     }
 }
+
